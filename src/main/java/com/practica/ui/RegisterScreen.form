@@ -102,20 +102,20 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabelJocElegit1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxJocElegit1" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                           <Component id="jLabelUsuari1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxUsuari1" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                           <Component id="jLabelJocElegit" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxJocElegit" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="jComboBoxJocElegit" alignment="0" pref="220" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabelNumReg" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="textFieldNumReg" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jComboBoxUsuari" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="jComboBoxUsuari" alignment="0" pref="220" max="32767" attributes="0"/>
                           <Component id="jLabelUsuari" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="126" max="-2" attributes="0"/>
+                          <Component id="textFieldDataInici" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jLabel2" min="-2" pref="126" max="-2" attributes="0"/>
+                      <Component id="textFieldDataTornada" min="-2" pref="212" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
@@ -141,13 +141,13 @@
                   <Component id="jComboBoxJocElegit" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabelUsuari1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jComboBoxUsuari1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="textFieldDataInici" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="jLabelJocElegit1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jComboBoxJocElegit1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="textFieldDataTornada" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -207,21 +207,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxJocElegit1">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelJocElegit1">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -229,21 +214,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Data de tornada:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxUsuari1">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelUsuari1">
           <Properties>
@@ -267,6 +237,16 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Dades del lloguer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textFieldDataInici">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textFieldDataTornada">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField2"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -435,10 +415,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelUtXbox5" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabelUtXbox3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jLabelUtXbox3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
@@ -624,6 +601,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#x2713; Confirmar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConfirmarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCancelar">
           <Properties>

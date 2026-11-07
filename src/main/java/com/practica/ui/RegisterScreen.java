@@ -4,6 +4,15 @@
  */
 package com.practica.ui;
 
+import com.practica.model.Alquiler;
+import com.practica.model.Juego;
+import com.practica.model.Plataforma;
+import com.practica.model.Usuario;
+import com.practica.service.DataStore;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author MrDeivid
@@ -11,6 +20,47 @@ package com.practica.ui;
 public class RegisterScreen extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegisterScreen.class.getName());
+    
+    private void cargarCombos() {
+    // Número de registro automático
+    textFieldNumReg.setText(String.valueOf(DataStore.getSiguienteNumRegistro()));
+
+   // Cargar usuarios
+    jComboBoxUsuari.removeAllItems();
+    for (Usuario u : DataStore.getUsuarios()) {
+        ((javax.swing.JComboBox) jComboBoxUsuari).addItem(u);
+    }
+
+    // Cargar juegos
+    jComboBoxJocElegit.removeAllItems();
+    for (Juego j : DataStore.getJuegos()) {
+        ((javax.swing.JComboBox) jComboBoxJocElegit).addItem(j);
+    }
+    
+    
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    String fechaDevolucion = LocalDate.now().plusDays(7).format(fmt);
+    String fechaInicio = LocalDate.now().format(fmt);
+  
+    textFieldDataInici.setText(fechaInicio);
+    textFieldDataInici.setEditable(false);
+    
+    textFieldDataTornada.setText(fechaDevolucion);
+    textFieldDataTornada.setEditable(false);
+
+    actualizarStockMostrado();
+}
+
+private void actualizarStockMostrado() {
+    Juego juegoSeleccionado = (Juego) jComboBoxJocElegit.getSelectedItem();
+    if (juegoSeleccionado != null) {
+        // Usa directamente los getters específicos de tu clase Juego
+        jLabelUtPS5.setText(String.valueOf(juegoSeleccionado.getStockPs5()));
+        jLabelUtXbox.setText(String.valueOf(juegoSeleccionado.getStockXbox()));
+        jLabelUtPC.setText(String.valueOf(juegoSeleccionado.getStockPc()));
+        jLabelUtSwitch2.setText(String.valueOf(juegoSeleccionado.getStockSwitch2())); 
+    }
+}
 
     /**
      * Creates new form RegisterScreen
@@ -18,8 +68,24 @@ public class RegisterScreen extends javax.swing.JDialog {
     public RegisterScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        javax.swing.ButtonGroup grupoPlataformas = new javax.swing.ButtonGroup();
+        grupoPlataformas.add(jRadioButtonPC);
+        grupoPlataformas.add(jRadioButtonPS5);
+        grupoPlataformas.add(jRadioButtonXbox);
+        grupoPlataformas.add(jRadioButtonSwitch2);
+
+        // Desactivar el campo del número de registro (es automático)
+        textFieldNumReg.setEditable(false);
+
+        // Cargar datos en los ComboBox y actualizar stock
+        cargarCombos();
+
+        // Evento para cambiar el estoc mostrado al seleccionar otro juego
+        jComboBoxJocElegit.addActionListener(e -> actualizarStockMostrado());
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,12 +104,12 @@ public class RegisterScreen extends javax.swing.JDialog {
         jComboBoxUsuari = new javax.swing.JComboBox<>();
         jLabelJocElegit = new javax.swing.JLabel();
         jComboBoxJocElegit = new javax.swing.JComboBox<>();
-        jComboBoxJocElegit1 = new javax.swing.JComboBox<>();
         jLabelJocElegit1 = new javax.swing.JLabel();
-        jComboBoxUsuari1 = new javax.swing.JComboBox<>();
         jLabelUsuari1 = new javax.swing.JLabel();
         textFieldNumReg = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
+        textFieldDataInici = new javax.swing.JTextField();
+        textFieldDataTornada = new javax.swing.JTextField();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jRadioButtonPC = new javax.swing.JRadioButton();
         jRadioButtonPS5 = new javax.swing.JRadioButton();
@@ -105,12 +171,8 @@ public class RegisterScreen extends javax.swing.JDialog {
 
         jComboBoxJocElegit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBoxJocElegit1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabelJocElegit1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelJocElegit1.setText("Data de tornada:");
-
-        jComboBoxUsuari1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabelUsuari1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelUsuari1.setText("Data d'inici:");
@@ -121,17 +183,21 @@ public class RegisterScreen extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Dades del lloguer");
 
+        textFieldDataInici.setText("jTextField1");
+
+        textFieldDataTornada.setText("jTextField2");
+
         jLayeredPane1.setLayer(jLabelNumReg, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabelUsuari, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jComboBoxUsuari, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabelJocElegit, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jComboBoxJocElegit, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jComboBoxJocElegit1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabelJocElegit1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jComboBoxUsuari1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabelUsuari1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(textFieldNumReg, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(textFieldDataInici, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(textFieldDataTornada, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -142,18 +208,18 @@ public class RegisterScreen extends javax.swing.JDialog {
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabelJocElegit1)
-                        .addComponent(jComboBoxJocElegit1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelUsuari1)
-                        .addComponent(jComboBoxUsuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelJocElegit)
-                        .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxJocElegit, 0, 220, Short.MAX_VALUE)
                         .addGroup(jLayeredPane1Layout.createSequentialGroup()
                             .addComponent(jLabelNumReg)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(textFieldNumReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelUsuari))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxUsuari, 0, 220, Short.MAX_VALUE)
+                        .addComponent(jLabelUsuari)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textFieldDataInici))
+                    .addComponent(textFieldDataTornada, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -175,13 +241,13 @@ public class RegisterScreen extends javax.swing.JDialog {
                 .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelUsuari1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxUsuari1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabelJocElegit1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxJocElegit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldDataTornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jRadioButtonPC.setForeground(new java.awt.Color(0, 0, 0));
@@ -315,6 +381,7 @@ public class RegisterScreen extends javax.swing.JDialog {
         jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 51));
         jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonConfirmar.setText("✓ Confirmar");
+        jButtonConfirmar.addActionListener(this::jButtonConfirmarActionPerformed);
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 51, 51));
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -346,9 +413,7 @@ public class RegisterScreen extends javax.swing.JDialog {
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUtXbox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jLayeredPane4Layout.createSequentialGroup()
-                                .addComponent(jLabelUtXbox3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabelUtXbox3))
                         .addGap(6, 6, 6))
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +527,67 @@ public class RegisterScreen extends javax.swing.JDialog {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        // TODO add your handling code here:
+        Usuario usuario = (Usuario) jComboBoxUsuari.getSelectedItem();
+        Juego juego = (Juego) jComboBoxJocElegit.getSelectedItem();
+
+        if (usuario == null || juego == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona un usuari i un joc vàlids.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Determinar la plataforma seleccionada
+        Plataforma plataforma = null;
+        int stockDisponible = 0;
+
+        if (jRadioButtonPS5.isSelected()) {
+            plataforma = Plataforma.PS5;
+            stockDisponible = juego.getStockPs5();
+        } else if (jRadioButtonXbox.isSelected()) {
+            plataforma = Plataforma.XBOX;
+            stockDisponible = juego.getStockXbox();
+        } else if (jRadioButtonPC.isSelected()) {
+            plataforma = Plataforma.PC;
+            stockDisponible = juego.getStockPc();
+        } else if (jRadioButtonSwitch2.isSelected()) {
+            plataforma = Plataforma.SWITCH_2;
+            stockDisponible = juego.getStockSwitch2();
+        }
+
+        if (plataforma == null) {
+            JOptionPane.showMessageDialog(this, "Has de seleccionar una plataforma.", "Avís", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validar estoc disponible
+        if (stockDisponible <= 0) {
+            JOptionPane.showMessageDialog(this, "No hi ha estoc disponible per a aquesta plataforma.", "Sense Estoc", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Crear el alquiler
+        Alquiler nuevoAlquiler = new Alquiler(
+            DataStore.getSiguienteNumRegistro(),
+            usuario,
+            juego,
+            plataforma,
+            LocalDate.now(),
+            LocalDate.now().plusDays(7),
+            false
+        );
+
+        // Guardar alquiler, decrementar estoc e incrementar el contador de registro
+        DataStore.getAlquileres().add(nuevoAlquiler);
+        juego.decrementarStock(plataforma);
+        DataStore.incrementarSiguienteNumRegistro();
+
+        JOptionPane.showMessageDialog(this, "Lloguer registrat amb èxit!");
+        this.dispose();
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,9 +631,7 @@ public class RegisterScreen extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JComboBox<String> jComboBoxJocElegit;
-    private javax.swing.JComboBox<String> jComboBoxJocElegit1;
     private javax.swing.JComboBox<String> jComboBoxUsuari;
-    private javax.swing.JComboBox<String> jComboBoxUsuari1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -541,6 +664,8 @@ public class RegisterScreen extends javax.swing.JDialog {
     private javax.swing.JRadioButton jRadioButtonPS5;
     private javax.swing.JRadioButton jRadioButtonSwitch2;
     private javax.swing.JRadioButton jRadioButtonXbox;
+    private javax.swing.JTextField textFieldDataInici;
+    private javax.swing.JTextField textFieldDataTornada;
     private java.awt.TextField textFieldNumReg;
     // End of variables declaration//GEN-END:variables
 }

@@ -125,4 +125,9 @@ public class Juego {
         }
     }
     
+    @Override
+public String toString() {
+    return nombre; 
+}
+    
 }

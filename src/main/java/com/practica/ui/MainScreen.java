@@ -107,6 +107,7 @@ public class MainScreen extends javax.swing.JFrame {
         jMenuLloguer.add(jMenuItemLloguerRegistrar);
 
         jMenuItemLloguerTornar.setText("Tornar...");
+        jMenuItemLloguerTornar.addActionListener(this::jMenuItemLloguerTornarActionPerformed);
         jMenuLloguer.add(jMenuItemLloguerTornar);
 
         jMenuBar1.add(jMenuLloguer);
@@ -162,7 +163,21 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jMenuItemLloguerRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLloguerRegistrarActionPerformed
         // TODO add your handling code here:
+        RegisterScreen registerScreen = new RegisterScreen(this, true);
+        registerScreen.setLocationRelativeTo(this);
+        registerScreen.setVisible(true);
+        
+        actualizarTablaAlquileres();
     }//GEN-LAST:event_jMenuItemLloguerRegistrarActionPerformed
+
+    private void jMenuItemLloguerTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLloguerTornarActionPerformed
+        // TODO add your handling code here:
+        ReturnScreen returnScreen = new ReturnScreen(this, true);
+        returnScreen.setLocationRelativeTo(this);
+        returnScreen.setVisible(true);
+        
+        actualizarTablaAlquileres();
+    }//GEN-LAST:event_jMenuItemLloguerTornarActionPerformed
 
     /**
      * @param args the command line arguments

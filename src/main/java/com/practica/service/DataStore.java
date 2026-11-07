@@ -40,6 +40,10 @@ public static List<Juego> getJuegos() {
         cargarDatosIniciales();
     }
     
+    public static void incrementarSiguienteNumRegistro() {
+    siguienteNumRegistro++;
+}
+    
     private static void cargarDatosIniciales() {
         Usuario u1 = new Usuario("Laura", "Garcia", "Pérez", "12345678A","600111222", LocalDate.now());
         Usuario u2 = new Usuario("Marc", "López", "Martí", "87654321B","600333444", LocalDate.now());
