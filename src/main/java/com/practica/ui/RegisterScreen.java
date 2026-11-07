@@ -29,21 +29,440 @@ public class RegisterScreen extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jLabelUtXbox9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLabelNumReg = new javax.swing.JLabel();
+        jLabelUsuari = new javax.swing.JLabel();
+        jComboBoxUsuari = new javax.swing.JComboBox<>();
+        jLabelJocElegit = new javax.swing.JLabel();
+        jComboBoxJocElegit = new javax.swing.JComboBox<>();
+        jComboBoxJocElegit1 = new javax.swing.JComboBox<>();
+        jLabelJocElegit1 = new javax.swing.JLabel();
+        jComboBoxUsuari1 = new javax.swing.JComboBox<>();
+        jLabelUsuari1 = new javax.swing.JLabel();
+        textFieldNumReg = new java.awt.TextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jRadioButtonPC = new javax.swing.JRadioButton();
+        jRadioButtonPS5 = new javax.swing.JRadioButton();
+        jRadioButtonXbox = new javax.swing.JRadioButton();
+        jRadioButtonSwitch2 = new javax.swing.JRadioButton();
+        jLabelUtPC = new javax.swing.JLabel();
+        jLabelUtPS5 = new javax.swing.JLabel();
+        jLabelUtXbox = new javax.swing.JLabel();
+        jLabelUtSwitch2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLayeredPane4 = new javax.swing.JLayeredPane();
+        jLabelUtPC1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabelUtPC2 = new javax.swing.JLabel();
+        jLabelUtPS7 = new javax.swing.JLabel();
+        jLabelUtXbox2 = new javax.swing.JLabel();
+        jLabelUtXbox3 = new javax.swing.JLabel();
+        jLabelUtXbox4 = new javax.swing.JLabel();
+        jLabelUtXbox5 = new javax.swing.JLabel();
+        jLabelPS5 = new javax.swing.JLabel();
+        jLabelXbox = new javax.swing.JLabel();
+        jLabelPC = new javax.swing.JLabel();
+        jLabelSwitch2 = new javax.swing.JLabel();
+        jButtonConfirmar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabelUtXbox9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtXbox9.setText("1");
+
+        jButton1.setText("jButton1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLayeredPane1.setName("Dades del lloguer"); // NOI18N
+
+        jLabelNumReg.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelNumReg.setText("Núm. de registre:");
+
+        jLabelUsuari.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUsuari.setText("Usuari");
+
+        jComboBoxUsuari.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabelJocElegit.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelJocElegit.setText("Joc elegit:");
+
+        jComboBoxJocElegit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBoxJocElegit1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabelJocElegit1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelJocElegit1.setText("Data de tornada:");
+
+        jComboBoxUsuari1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabelUsuari1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUsuari1.setText("Data d'inici:");
+
+        textFieldNumReg.setText("textField1");
+        textFieldNumReg.addActionListener(this::textFieldNumRegActionPerformed);
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Dades del lloguer");
+
+        jLayeredPane1.setLayer(jLabelNumReg, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabelUsuari, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jComboBoxUsuari, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabelJocElegit, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jComboBoxJocElegit, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jComboBoxJocElegit1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabelJocElegit1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jComboBoxUsuari1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabelUsuari1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(textFieldNumReg, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelJocElegit1)
+                        .addComponent(jComboBoxJocElegit1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelUsuari1)
+                        .addComponent(jComboBoxUsuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelJocElegit)
+                        .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                            .addComponent(jLabelNumReg)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textFieldNumReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelUsuari))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(24, 24, 24)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNumReg)
+                    .addComponent(textFieldNumReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelUsuari)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelJocElegit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelUsuari1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxUsuari1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelJocElegit1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxJocElegit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        jRadioButtonPC.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonPC.setText("PC");
+        jRadioButtonPC.addActionListener(this::jRadioButtonPCActionPerformed);
+
+        jRadioButtonPS5.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonPS5.setText("PS5");
+        jRadioButtonPS5.addActionListener(this::jRadioButtonPS5ActionPerformed);
+
+        jRadioButtonXbox.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonXbox.setText("Xbox");
+        jRadioButtonXbox.addActionListener(this::jRadioButtonXboxActionPerformed);
+
+        jRadioButtonSwitch2.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonSwitch2.setText("Switch2");
+        jRadioButtonSwitch2.addActionListener(this::jRadioButtonSwitch2ActionPerformed);
+
+        jLabelUtPC.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtPC.setText("(x unitat disponible)");
+
+        jLabelUtPS5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtPS5.setText("(x unitat disponible)");
+
+        jLabelUtXbox.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtXbox.setText("(x unitat disponible)");
+
+        jLabelUtSwitch2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtSwitch2.setText("(x unitat disponible)");
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Plataforma:");
+
+        jLayeredPane2.setLayer(jRadioButtonPC, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jRadioButtonPS5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jRadioButtonXbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jRadioButtonSwitch2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabelUtPC, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabelUtPS5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabelUtXbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabelUtSwitch2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jRadioButtonSwitch2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUtSwitch2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jRadioButtonXbox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUtXbox, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jRadioButtonPS5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUtPS5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(jRadioButtonPC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUtPC, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonPC)
+                    .addComponent(jLabelUtPC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonPS5)
+                    .addComponent(jLabelUtPS5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonXbox)
+                    .addComponent(jLabelUtXbox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonSwitch2)
+                    .addComponent(jLabelUtSwitch2))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        jLabelUtPC1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtPC1.setText("Acció");
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Informació del joc");
+
+        jLabelUtPC2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtPC2.setText("Gènere:");
+
+        jLabelUtPS7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtPS7.setText("Unitats disponibles:");
+
+        jLabelUtXbox2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtXbox2.setText("PS5:");
+
+        jLabelUtXbox3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtXbox3.setText("Xbox:");
+
+        jLabelUtXbox4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtXbox4.setText("PC:");
+
+        jLabelUtXbox5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtXbox5.setText("Switch 2:");
+
+        jLabelPS5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelPS5.setText("0");
+
+        jLabelXbox.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelXbox.setText("0");
+
+        jLabelPC.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelPC.setText("1");
+
+        jLabelSwitch2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelSwitch2.setText("1");
+
+        jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 51));
+        jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonConfirmar.setText("✓ Confirmar");
+
+        jButtonCancelar.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setText("❌ Cancel·lar");
+        jButtonCancelar.addActionListener(this::jButtonCancelarActionPerformed);
+
+        jLayeredPane4.setLayer(jLabelUtPC1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtPC2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtPS7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtXbox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtXbox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtXbox4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtXbox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelPS5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelXbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelPC, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelSwitch2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jButtonConfirmar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jButtonCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
+        jLayeredPane4.setLayout(jLayeredPane4Layout);
+        jLayeredPane4Layout.setHorizontalGroup(
+            jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUtXbox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                                .addComponent(jLabelUtXbox3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(6, 6, 6))
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUtXbox2)
+                            .addComponent(jLabelUtXbox4)
+                            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                                .addComponent(jLabelUtPC2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelUtPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(jLabelSwitch2)
+                                    .addComponent(jLabelPS5)
+                                    .addComponent(jLabelXbox)
+                                    .addComponent(jLabelPC))
+                                .addComponent(jLabelUtPS7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jLayeredPane4Layout.setVerticalGroup(
+            jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUtPC1)
+                    .addComponent(jLabelUtPC2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelUtPS7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addComponent(jLabelUtXbox2)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabelUtXbox3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUtXbox4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUtXbox5))
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addComponent(jLabelPS5)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabelXbox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelPC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelSwitch2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
+
+        jLayeredPane1.getAccessibleContext().setAccessibleName("Dades del lloguer");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textFieldNumRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNumRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNumRegActionPerformed
+
+    private void jRadioButtonPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonPCActionPerformed
+
+    private void jRadioButtonPS5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPS5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonPS5ActionPerformed
+
+    private void jRadioButtonXboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonXboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonXboxActionPerformed
+
+    private void jRadioButtonSwitch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSwitch2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonSwitch2ActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,5 +502,45 @@ public class RegisterScreen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JComboBox<String> jComboBoxJocElegit;
+    private javax.swing.JComboBox<String> jComboBoxJocElegit1;
+    private javax.swing.JComboBox<String> jComboBoxUsuari;
+    private javax.swing.JComboBox<String> jComboBoxUsuari1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelJocElegit;
+    private javax.swing.JLabel jLabelJocElegit1;
+    private javax.swing.JLabel jLabelNumReg;
+    private javax.swing.JLabel jLabelPC;
+    private javax.swing.JLabel jLabelPS5;
+    private javax.swing.JLabel jLabelSwitch2;
+    private javax.swing.JLabel jLabelUsuari;
+    private javax.swing.JLabel jLabelUsuari1;
+    private javax.swing.JLabel jLabelUtPC;
+    private javax.swing.JLabel jLabelUtPC1;
+    private javax.swing.JLabel jLabelUtPC2;
+    private javax.swing.JLabel jLabelUtPS5;
+    private javax.swing.JLabel jLabelUtPS7;
+    private javax.swing.JLabel jLabelUtSwitch2;
+    private javax.swing.JLabel jLabelUtXbox;
+    private javax.swing.JLabel jLabelUtXbox2;
+    private javax.swing.JLabel jLabelUtXbox3;
+    private javax.swing.JLabel jLabelUtXbox4;
+    private javax.swing.JLabel jLabelUtXbox5;
+    private javax.swing.JLabel jLabelUtXbox9;
+    private javax.swing.JLabel jLabelXbox;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane4;
+    private javax.swing.JRadioButton jRadioButtonPC;
+    private javax.swing.JRadioButton jRadioButtonPS5;
+    private javax.swing.JRadioButton jRadioButtonSwitch2;
+    private javax.swing.JRadioButton jRadioButtonXbox;
+    private java.awt.TextField textFieldNumReg;
     // End of variables declaration//GEN-END:variables
 }
