@@ -18,9 +18,21 @@ import java.util.List;
  * @author MrDeivid
  */
 public class DataStore {
-    private static List<Usuario> usuarios = new ArrayList<>();
-    private static List<Juego> juegos = new ArrayList<>();
-    private static List<Alquiler> alquileres = new ArrayList<>();
+    public static List<Usuario> usuarios = new ArrayList<>();
+    public static List<Juego> juegos = new ArrayList<>();
+    public static List<Alquiler> alquileres = new ArrayList<>();
+    
+    public static List<Alquiler> getAlquileres() {
+    return alquileres;
+}
+
+public static List<Usuario> getUsuarios() {
+    return usuarios;
+}
+
+public static List<Juego> getJuegos() {
+    return juegos;
+}
     
     private static int siguienteNumRegistro = 1;
     
@@ -48,8 +60,10 @@ public class DataStore {
         j1.decrementarStock(Plataforma.PS5);
         Alquiler a1 = new Alquiler(siguienteNumRegistro++, u1, j1, Plataforma.PS5, LocalDate.now().minusDays(2), LocalDate.now().plusDays(5), false);
         Alquiler a2 = new Alquiler(siguienteNumRegistro++, u2, j2, Plataforma.XBOX, LocalDate.now().minusDays(1), LocalDate.now().plusDays(6), false);
+        Alquiler a3 = new Alquiler(siguienteNumRegistro++, u3, j3, Plataforma.PC, LocalDate.now().minusDays(3), LocalDate.now().plusDays(6), false);
         alquileres.add(a1);
         alquileres.add(a2);
+        alquileres.add(a3);
     }
     
     public static boolean tieneAlquileresActivos(Juego juego) {

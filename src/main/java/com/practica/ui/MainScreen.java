@@ -4,6 +4,11 @@
  */
 package com.practica.ui;
 
+import com.practica.model.Alquiler;
+import com.practica.service.DataStore;
+import java.time.format.DateTimeFormatter;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MrDeivid
@@ -17,7 +22,43 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         initComponents();
+        actualizarTablaAlquileres();
     }
+    
+    public void actualizarTablaAlquileres() {
+    String[] columnas = {"Núm. registre", "Títol del joc", "Usuari", "Plataforma", "Data d'inici", "Data de tornada", "Gènere"};
+    
+    DefaultTableModel model = new DefaultTableModel(columnas, 0) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    for (Alquiler a : DataStore.getAlquileres()) {
+        Object[] fila = {
+            String.format("%02d", a.getNumRegistro()),
+            a.getJuego().getNombre(),
+            a.getUsuario().getNombreCompleto(),
+            a.getPlataforma().toString(),
+            a.getFechaInicio().format(fmt),
+            a.getFechaPrevista().format(fmt),
+            a.getJuego().getGenero()
+        };
+        model.addRow(fila);
+    }
+
+    // Cambia jTable1 y jLabel1 si tienen otros nombres en tu Diseñador
+    jTable1.setModel(model);
+
+    for (int i = 0; i < jTable1.getColumnCount(); i++) {
+        jTable1.getColumnModel().getColumn(i).setCellRenderer(new AlquilerTableCellRenderer());
+    }
+
+    jLabel1.setText("Total de lloguers: " + DataStore.getAlquileres().size());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
