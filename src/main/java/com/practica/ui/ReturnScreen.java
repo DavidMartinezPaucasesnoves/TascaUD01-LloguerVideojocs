@@ -4,21 +4,100 @@
  */
 package com.practica.ui;
 
+import com.practica.model.Alquiler;
+import com.practica.service.DataStore;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MrDeivid
  */
 public class ReturnScreen extends javax.swing.JDialog {
     
+
+    
+    // Lista auxiliar para sincronizar la fila seleccionada de la tabla con el objeto Alquiler
+    private List<Alquiler> alquileresPendientes = new ArrayList<>();
+
+    public ReturnScreen(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        
+        // Cargar los alquileres pendientes en la tabla
+        actualizarTablaPendientes();
+        
+        // Listener para actualizar las etiquetas al hacer clic en una fila de la tabla
+        jTable1.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                mostrarDetallesSeleccionados();
+           }
+        });
+    }
+        private void actualizarTablaPendientes() {
+            alquileresPendientes.clear();
+
+            String[] columnas = {"Núm. registre", "Títol del joc", "Usuari", "Plataforma", "Data d'inici"};
+            DefaultTableModel model = new DefaultTableModel(columnas, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+        };
+
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    // Solo cargamos alquileres que NO han sido devueltos aún
+    for (Alquiler a : DataStore.getAlquileres()) {
+        if (!a.isDevuelto()) {
+            alquileresPendientes.add(a);
+            Object[] fila = {
+                String.format("%02d", a.getNumRegistro()),
+                a.getJuego().getNombre(),
+                a.getUsuario().getNombreCompleto(),
+                a.getPlataforma().toString(),
+                a.getFechaInicio().format(fmt)
+            };
+            model.addRow(fila);
+        }
+    }
+
+    jTable1.setModel(model);
+    limpiarDetalles();
+}
+
+private void mostrarDetallesSeleccionados() {
+    int filaSeleccionada = jTable1.getSelectedRow();
+    
+    if (filaSeleccionada >= 0 && filaSeleccionada < alquileresPendientes.size()) {
+        Alquiler a = alquileresPendientes.get(filaSeleccionada);
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        jLabelJoc.setText(a.getJuego().getNombre());
+        jLabelNom.setText(a.getUsuario().getNombreCompleto());
+        jLabelPC.setText(a.getPlataforma().toString());
+        jLabelData.setText(a.getFechaInicio().format(fmt));
+    } else {
+        limpiarDetalles();
+    }
+}
+
+private void limpiarDetalles() {
+    jLabelJoc.setText("-");
+    jLabelNom.setText("-");
+    jLabelPC.setText("-");
+    jLabelData.setText("-");
+}
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReturnScreen.class.getName());
 
     /**
      * Creates new form ReturnScreen
      */
-    public ReturnScreen(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,10 +155,12 @@ public class ReturnScreen extends javax.swing.JDialog {
         jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 51));
         jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonConfirmar.setText("↺ Marcar com a retornat");
+        jButtonConfirmar.addActionListener(this::jButtonConfirmarActionPerformed);
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 51, 51));
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("❌ Tancar");
+        jButtonCancelar.addActionListener(this::jButtonCancelarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +225,34 @@ public class ReturnScreen extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jTable1.getSelectedRow();
+    
+        if (filaSeleccionada < 0) {
+            JOptionPane.showMessageDialog(this, "Selecciona un lloguer de la taula per retornar.", "Avís", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Alquiler alquiler = alquileresPendientes.get(filaSeleccionada);
+
+        // 1. Marcar como devuelto
+        alquiler.setDevuelto(true);
+
+        // 2. Incrementar el stock correspondiente de la plataforma
+        alquiler.getJuego().incrementarStock(alquiler.getPlataforma());
+
+        JOptionPane.showMessageDialog(this, "El joc s'ha retornat correctament!");
+
+        // Recargar la tabla de esta ventana para que desaparezca el alquiler devuelto
+        actualizarTablaPendientes();
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
