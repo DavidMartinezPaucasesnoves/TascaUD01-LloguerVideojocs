@@ -4,11 +4,20 @@
  */
 package com.practica.ui;
 
+import com.practica.model.Usuario;
+import com.practica.service.DataStore;
+import com.practica.validation.ValidationAPI;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 /**
  *
  * @author MrDeivid
  */
 public class UserScreen extends javax.swing.JDialog {
+    
+    
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(UserScreen.class.getName());
 
@@ -18,6 +27,11 @@ public class UserScreen extends javax.swing.JDialog {
     public UserScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        // Cargar la fecha actual y bloquear el campo de fecha de registro
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        jTextFieldDate.setText(LocalDate.now().format(fmt));
+        jTextFieldDate.setEditable(false);
     }
 
     /**
@@ -35,12 +49,12 @@ public class UserScreen extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
+        jTextFieldSurname2 = new javax.swing.JTextField();
+        jTextFieldSurname1 = new javax.swing.JTextField();
+        jTextFieldDNI = new javax.swing.JTextField();
+        jTextFieldTelefon = new javax.swing.JTextField();
+        jTextFieldDate = new javax.swing.JTextField();
         jButtonConfirmar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
 
@@ -58,21 +72,22 @@ public class UserScreen extends javax.swing.JDialog {
 
         jLabel6.setText("Data de registre:");
 
-        jTextField1.setText("jTextField1");
+        jTextFieldName.setText("jTextField1");
 
-        jTextField2.setText("jTextField1");
+        jTextFieldSurname2.setText("jTextField1");
 
-        jTextField3.setText("jTextField1");
+        jTextFieldSurname1.setText("jTextField1");
 
-        jTextField4.setText("jTextField1");
+        jTextFieldDNI.setText("jTextField1");
 
-        jTextField5.setText("jTextField1");
+        jTextFieldTelefon.setText("jTextField1");
 
-        jTextField6.setText("jTextField1");
+        jTextFieldDate.setText("jTextField1");
 
         jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 51));
         jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonConfirmar.setText("✓ Confirmar");
+        jButtonConfirmar.addActionListener(this::jButtonConfirmarActionPerformed);
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 51, 51));
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,7 +104,7 @@ public class UserScreen extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
@@ -104,11 +119,11 @@ public class UserScreen extends javax.swing.JDialog {
                                 .addGap(32, 32, 32)
                                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField5)
-                                .addComponent(jTextField6)))))
+                                .addComponent(jTextFieldSurname1)
+                                .addComponent(jTextFieldSurname2)
+                                .addComponent(jTextFieldDNI)
+                                .addComponent(jTextFieldTelefon)
+                                .addComponent(jTextFieldDate)))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,27 +132,27 @@ public class UserScreen extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldSurname2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,7 +165,49 @@ public class UserScreen extends javax.swing.JDialog {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        // TODO add your handling code here:
+        String nom = jTextFieldName.getText().trim();
+        String llinatge1 = jTextFieldSurname1.getText().trim();
+        String llinatge2 = jTextFieldSurname2.getText().trim();
+        String dni = jTextFieldDNI.getText().trim();
+        String telefon = jTextFieldTelefon.getText().trim();
+
+        // 1. Validar campos vacíos
+        if (ValidationAPI.estaVacio(nom) || ValidationAPI.estaVacio(llinatge1) || ValidationAPI.estaVacio(llinatge2)) {
+            JOptionPane.showMessageDialog(this, "Tots els mebres del nom i cognoms són obligatoris.", "Error de Validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 2. Validar primera letra en mayúscula
+        if (!ValidationAPI.empiezaMayus(nom) || !ValidationAPI.empiezaMayus(llinatge1) || !ValidationAPI.empiezaMayus(llinatge2)) {
+            JOptionPane.showMessageDialog(this, "El nom i els cognoms han de començar amb majúscula.", "Error de Validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 3. Validar DNI
+        if (!ValidationAPI.validarDni(dni)) {
+            JOptionPane.showMessageDialog(this, "El DNI introduït no és vàlid (ha de tenir 8 números i 1 lletra).", "Error de Validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 4. Validar Teléfono
+        if (!ValidationAPI.validarTelefono(telefon)) {
+            JOptionPane.showMessageDialog(this, "El telèfon introduït no és vàlid (ha de tenir 9 dígits).", "Error de Validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 5. Crear el nuevo usuario y guardarlo en DataStore
+        // (Ajusta los parámetros del constructor de Usuario según el orden de tu clase Usuario.java)
+        Usuario nuevoUsuario = new Usuario(dni, nom, llinatge1, llinatge2, telefon, LocalDate.now());
+        DataStore.getUsuarios().add(nuevoUsuario);
+
+        JOptionPane.showMessageDialog(this, "Usuari registrat correctament!");
+        this.dispose();
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,11 +255,11 @@ public class UserScreen extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextFieldDNI;
+    private javax.swing.JTextField jTextFieldDate;
+    private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldSurname1;
+    private javax.swing.JTextField jTextFieldSurname2;
+    private javax.swing.JTextField jTextFieldTelefon;
     // End of variables declaration//GEN-END:variables
 }

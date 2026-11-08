@@ -115,6 +115,7 @@ public class MainScreen extends javax.swing.JFrame {
         jMenuUsuari.setText("Usuari");
 
         jMenuItemUsuariCrear.setText("Crear...");
+        jMenuItemUsuariCrear.addActionListener(this::jMenuItemUsuariCrearActionPerformed);
         jMenuUsuari.add(jMenuItemUsuariCrear);
 
         jMenuItemUsuariBorrar.setText("Borrar...");
@@ -178,6 +179,13 @@ public class MainScreen extends javax.swing.JFrame {
         
         actualizarTablaAlquileres();
     }//GEN-LAST:event_jMenuItemLloguerTornarActionPerformed
+
+    private void jMenuItemUsuariCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuariCrearActionPerformed
+        // TODO add your handling code here:
+        UserScreen dialog = new UserScreen(this, true);
+        dialog.setLocationRelativeTo(this);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemUsuariCrearActionPerformed
 
     /**
      * @param args the command line arguments
