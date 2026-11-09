@@ -130,6 +130,7 @@ public class MainScreen extends javax.swing.JFrame {
         jMenuJoc.add(jMenuItemJocCrear);
 
         jMenuItemJocBorrar.setText("Borrar...");
+        jMenuItemJocBorrar.addActionListener(this::jMenuItemJocBorrarActionPerformed);
         jMenuJoc.add(jMenuItemJocBorrar);
 
         jMenuBar1.add(jMenuJoc);
@@ -194,6 +195,13 @@ public class MainScreen extends javax.swing.JFrame {
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_jMenuItemJocCrearActionPerformed
+
+    private void jMenuItemJocBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJocBorrarActionPerformed
+        // TODO add your handling code here:
+        DeleteGameScreen dialog = new DeleteGameScreen(this, true);
+        dialog.setLocationRelativeTo(this);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemJocBorrarActionPerformed
 
     /**
      * @param args the command line arguments
