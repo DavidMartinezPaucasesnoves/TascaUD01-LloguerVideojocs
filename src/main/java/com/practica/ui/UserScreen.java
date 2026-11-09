@@ -72,15 +72,7 @@ public class UserScreen extends javax.swing.JDialog {
 
         jLabel6.setText("Data de registre:");
 
-        jTextFieldName.setText("jTextField1");
-
-        jTextFieldSurname2.setText("jTextField1");
-
-        jTextFieldSurname1.setText("jTextField1");
-
-        jTextFieldDNI.setText("jTextField1");
-
-        jTextFieldTelefon.setText("jTextField1");
+        jTextFieldName.addActionListener(this::jTextFieldNameActionPerformed);
 
         jTextFieldDate.setText("jTextField1");
 
@@ -208,6 +200,10 @@ public class UserScreen extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this, "Usuari registrat correctament!");
         this.dispose();
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
+
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
 
     /**
      * @param args the command line arguments

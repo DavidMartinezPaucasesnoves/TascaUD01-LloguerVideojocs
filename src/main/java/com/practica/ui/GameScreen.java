@@ -4,6 +4,12 @@
  */
 package com.practica.ui;
 
+import com.practica.model.Juego;
+import com.practica.service.DataStore;
+import com.practica.validation.ValidationAPI;
+import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author MrDeivid
@@ -18,6 +24,21 @@ public class GameScreen extends javax.swing.JDialog {
     public GameScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        // 1. Cargar la lista de géneros en el ComboBox
+        jComboBoxGenere.removeAllItems();
+        jComboBoxGenere.addItem("Acció");
+        jComboBoxGenere.addItem("Aventura");
+        jComboBoxGenere.addItem("RPG");
+        jComboBoxGenere.addItem("Esports");
+        jComboBoxGenere.addItem("Estratègia");
+        jComboBoxGenere.addItem("Simulació");
+
+        // 2. Configurar los spinners para que no acepten números negativos (mínimo 0)
+        jSpinnerUdPS5.setModel(new SpinnerNumberModel(0, 0, 100, 1));
+        jSpinnerUdXbox.setModel(new SpinnerNumberModel(0, 0, 100, 1));
+        jSpinnerUdPC.setModel(new SpinnerNumberModel(0, 0, 100, 1));
+        jSpinnerUdSwitch2.setModel(new SpinnerNumberModel(0, 0, 100, 1));
     }
 
     /**
@@ -84,6 +105,7 @@ public class GameScreen extends javax.swing.JDialog {
         jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 51));
         jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonConfirmar.setText("✓ Confirmar");
+        jButtonConfirmar.addActionListener(this::jButtonConfirmarActionPerformed);
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 51, 51));
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -193,7 +215,54 @@ public class GameScreen extends javax.swing.JDialog {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        // TODO add your handling code here:
+        String nom = jTextFieldNom.getText().trim();
+        String genere = (String) jComboBoxGenere.getSelectedItem();
+
+        // 1. Validar nombre vacío
+        if (ValidationAPI.estaVacio(nom)) {
+            JOptionPane.showMessageDialog(this, "El nom del joc no pot estar buit.", "Error de Validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 2. Validar primera letra en mayúscula
+        if (!ValidationAPI.empiezaMayus(nom)) {
+            JOptionPane.showMessageDialog(this, "El nom del joc ha de començar amb majúscula.", "Error de Validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 3. Obtener el estoc de cada plataforma
+        // Si la plataforma está marcada (selected), leemos su spinner; si no, su estoc es 0
+        int stockPS5 = jRadioButtonPS5.isSelected() ? ((Number) jSpinnerUdPS5.getValue()).intValue() : 0;
+        int stockXbox = jRadioButtonXbox.isSelected() ? ((Number) jSpinnerUdXbox.getValue()).intValue() : 0;
+        int stockPC = jRadioButtonPC.isSelected() ? ((Number) jSpinnerUdPC.getValue()).intValue() : 0;
+        int stockSwitch2 = jRadioButtonSwitch2.isSelected() ? ((Number) jSpinnerUdSwitch2.getValue()).intValue() : 0;
+
+        // Radiobuttons si son solo Info
+        /*
+        int stockPS5 = ((Number) jSpinnerUdPS5.getValue()).intValue();
+        int stockXbox = ((Number) jSpinnerUdXbox.getValue()).intValue();
+        int stockPC = ((Number) jSpinnerUdPC.getValue()).intValue();
+        int stockSwitch2 = ((Number) jSpinnerUdSwitch2.getValue()).intValue();
+        */
+
+        // 4. Validar que al menos haya 1 unidad en alguna plataforma
+        if (stockPS5 == 0 && stockXbox == 0 && stockPC == 0 && stockSwitch2 == 0) {
+            JOptionPane.showMessageDialog(this, "Has de registrar almenys una unitat per a alguna plataforma.", "Avís", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 5. Crear el nuevo objeto Juego y añadirlo a DataStore
+        Juego nuevoJuego = new Juego(nom, genere, stockPS5, stockXbox, stockPC, stockSwitch2);
+        DataStore.getJuegos().add(nuevoJuego);
+        
+        JOptionPane.showMessageDialog(this, "Joc registrat correctament!");
+        this.dispose();
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     /**
      * @param args the command line arguments

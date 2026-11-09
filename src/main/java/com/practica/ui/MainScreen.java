@@ -126,6 +126,7 @@ public class MainScreen extends javax.swing.JFrame {
         jMenuJoc.setText("Joc");
 
         jMenuItemJocCrear.setText("Crear...");
+        jMenuItemJocCrear.addActionListener(this::jMenuItemJocCrearActionPerformed);
         jMenuJoc.add(jMenuItemJocCrear);
 
         jMenuItemJocBorrar.setText("Borrar...");
@@ -186,6 +187,13 @@ public class MainScreen extends javax.swing.JFrame {
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_jMenuItemUsuariCrearActionPerformed
+
+    private void jMenuItemJocCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJocCrearActionPerformed
+        // TODO add your handling code here:
+        GameScreen dialog = new GameScreen(this, true);
+        dialog.setLocationRelativeTo(this);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemJocCrearActionPerformed
 
     /**
      * @param args the command line arguments
