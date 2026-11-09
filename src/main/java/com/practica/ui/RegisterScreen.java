@@ -54,11 +54,16 @@ public class RegisterScreen extends javax.swing.JDialog {
 private void actualizarStockMostrado() {
     Juego juegoSeleccionado = (Juego) jComboBoxJocElegit.getSelectedItem();
     if (juegoSeleccionado != null) {
-        // Usa directamente los getters específicos de tu clase Juego
+        
         jLabelUtPS5.setText(String.valueOf(juegoSeleccionado.getStockPs5()));
         jLabelUtXbox.setText(String.valueOf(juegoSeleccionado.getStockXbox()));
         jLabelUtPC.setText(String.valueOf(juegoSeleccionado.getStockPc()));
         jLabelUtSwitch2.setText(String.valueOf(juegoSeleccionado.getStockSwitch2())); 
+        
+        jLabelXbox.setText(String.valueOf(juegoSeleccionado.getStockPs5()));
+        jLabelPS5.setText(String.valueOf(juegoSeleccionado.getStockXbox()));
+        jLabelPC.setText(String.valueOf(juegoSeleccionado.getStockPc()));
+        jLabelSwitch2.setText(String.valueOf(juegoSeleccionado.getStockSwitch2())); 
     }
 }
 
@@ -128,7 +133,7 @@ private void actualizarStockMostrado() {
         jLabelUtXbox2 = new javax.swing.JLabel();
         jLabelUtXbox3 = new javax.swing.JLabel();
         jLabelUtXbox4 = new javax.swing.JLabel();
-        jLabelUtXbox5 = new javax.swing.JLabel();
+        jLabelUtSwitch2D = new javax.swing.JLabel();
         jLabelPS5 = new javax.swing.JLabel();
         jLabelXbox = new javax.swing.JLabel();
         jLabelPC = new javax.swing.JLabel();
@@ -363,8 +368,8 @@ private void actualizarStockMostrado() {
         jLabelUtXbox4.setForeground(new java.awt.Color(0, 0, 0));
         jLabelUtXbox4.setText("PC:");
 
-        jLabelUtXbox5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelUtXbox5.setText("Switch 2:");
+        jLabelUtSwitch2D.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUtSwitch2D.setText("Switch 2:");
 
         jLabelPS5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelPS5.setText("0");
@@ -395,7 +400,7 @@ private void actualizarStockMostrado() {
         jLayeredPane4.setLayer(jLabelUtXbox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabelUtXbox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabelUtXbox4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jLabelUtXbox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabelUtSwitch2D, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabelPS5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabelXbox, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabelPC, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -412,7 +417,7 @@ private void actualizarStockMostrado() {
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelUtXbox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelUtSwitch2D, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelUtXbox3))
                         .addGap(6, 6, 6))
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
@@ -459,7 +464,7 @@ private void actualizarStockMostrado() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelUtXbox4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelUtXbox5))
+                        .addComponent(jLabelUtSwitch2D))
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
                         .addComponent(jLabelPS5)
                         .addGap(4, 4, 4)
@@ -650,11 +655,11 @@ private void actualizarStockMostrado() {
     private javax.swing.JLabel jLabelUtPS5;
     private javax.swing.JLabel jLabelUtPS7;
     private javax.swing.JLabel jLabelUtSwitch2;
+    private javax.swing.JLabel jLabelUtSwitch2D;
     private javax.swing.JLabel jLabelUtXbox;
     private javax.swing.JLabel jLabelUtXbox2;
     private javax.swing.JLabel jLabelUtXbox3;
     private javax.swing.JLabel jLabelUtXbox4;
-    private javax.swing.JLabel jLabelUtXbox5;
     private javax.swing.JLabel jLabelUtXbox9;
     private javax.swing.JLabel jLabelXbox;
     private javax.swing.JLayeredPane jLayeredPane1;
