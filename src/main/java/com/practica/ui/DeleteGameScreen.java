@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class DeleteGameScreen extends javax.swing.JDialog {
     

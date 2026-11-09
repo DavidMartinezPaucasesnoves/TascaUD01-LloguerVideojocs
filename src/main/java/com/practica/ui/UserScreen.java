@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class UserScreen extends javax.swing.JDialog {
     
@@ -193,7 +193,6 @@ public class UserScreen extends javax.swing.JDialog {
         }
 
         // 5. Crear el nuevo usuario y guardarlo en DataStore
-        // (Ajusta los parámetros del constructor de Usuario según el orden de tu clase Usuario.java)
         Usuario nuevoUsuario = new Usuario(dni, nom, llinatge1, llinatge2, telefon, LocalDate.now());
         DataStore.getUsuarios().add(nuevoUsuario);
 

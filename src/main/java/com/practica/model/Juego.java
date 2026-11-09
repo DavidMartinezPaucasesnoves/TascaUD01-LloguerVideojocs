@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class Juego {
     private String nombre;

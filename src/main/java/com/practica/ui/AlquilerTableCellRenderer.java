@@ -7,7 +7,7 @@ package com.practica.ui;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 
 import com.practica.model.Alquiler;

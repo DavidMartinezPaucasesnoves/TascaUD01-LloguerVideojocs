@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class MainScreen extends javax.swing.JFrame {
     
@@ -50,7 +50,7 @@ public class MainScreen extends javax.swing.JFrame {
         model.addRow(fila);
     }
 
-    // Cambia jTable1 y jLabel1 si tienen otros nombres en tu Diseñador
+ 
     jTable1.setModel(model);
 
     for (int i = 0; i < jTable1.getColumnCount(); i++) {

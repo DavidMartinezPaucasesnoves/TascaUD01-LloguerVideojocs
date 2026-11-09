@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class Alquiler {
     private int numRegistro;

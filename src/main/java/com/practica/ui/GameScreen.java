@@ -12,7 +12,7 @@ import javax.swing.SpinnerNumberModel;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class GameScreen extends javax.swing.JDialog {
     

@@ -14,13 +14,13 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class ReturnScreen extends javax.swing.JDialog {
     
 
     
-    // Lista auxiliar para sincronizar la fila seleccionada de la tabla con el objeto Alquiler
+    // Lista de ayuda para sincronizar la fila seleccionada de la tabla con el objeto Alquiler
     private List<Alquiler> alquileresPendientes = new ArrayList<>();
 
     public ReturnScreen(java.awt.Frame parent, boolean modal) {
@@ -50,7 +50,7 @@ public class ReturnScreen extends javax.swing.JDialog {
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    // Solo cargamos alquileres que NO han sido devueltos aún
+    // Solo cargo alquileres que NO han sido devueltos aún
     for (Alquiler a : DataStore.getAlquileres()) {
         if (!a.isDevuelto()) {
             alquileresPendientes.add(a);

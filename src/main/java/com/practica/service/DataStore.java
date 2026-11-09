@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class DataStore {
     public static List<Usuario> usuarios = new ArrayList<>();

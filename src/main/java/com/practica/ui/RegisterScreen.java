@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public class RegisterScreen extends javax.swing.JDialog {
     

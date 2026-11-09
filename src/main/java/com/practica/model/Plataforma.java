@@ -6,7 +6,7 @@ package com.practica.model;
 
 /**
  *
- * @author MrDeivid
+ * @author Deivid
  */
 public enum Plataforma {
     PS5("PS5"),
