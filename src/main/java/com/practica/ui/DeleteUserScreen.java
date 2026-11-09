@@ -4,6 +4,11 @@
  */
 package com.practica.ui;
 
+import com.practica.model.Alquiler;
+import com.practica.model.Usuario;
+import com.practica.service.DataStore;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MrDeivid
@@ -18,7 +23,36 @@ public class DeleteUserScreen extends javax.swing.JDialog {
     public DeleteUserScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        // 1. Cargar la lista de usuarios
+        cargarUsuarios();
+
+        // 2. Evento al cambiar de usuario seleccionado para calcular sus alquileres activos
+        jComboBox1.addActionListener(e -> actualizarAlquileresActivos());
     }
+    
+    private void cargarUsuarios() {
+        ((javax.swing.JComboBox) jComboBox1).removeAllItems();
+        for (Usuario u : DataStore.getUsuarios()) {
+            ((javax.swing.JComboBox) jComboBox1).addItem(u);
+        }
+        actualizarAlquileresActivos();
+    }
+
+    private void actualizarAlquileresActivos() {
+        Usuario usuarioSeleccionado = (Usuario) jComboBox1.getSelectedItem();
+        if (usuarioSeleccionado != null) {
+            int lloguersActius = 0;
+            for (Alquiler a : DataStore.getAlquileres()) {
+                if (a.getUsuario().equals(usuarioSeleccionado) && !a.isDevuelto()) {
+                    lloguersActius++;
+                }
+            }
+            jLabelNumLloguersAct.setText(String.valueOf(lloguersActius));
+        } else {
+            jLabelNumLloguersAct.setText("0");
+        }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,21 +63,123 @@ public class DeleteUserScreen extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButtonConfirmar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jLabelLlogAct = new javax.swing.JLabel();
+        jLabelNumLloguersAct = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setText("Quin usuari vols borrar:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonConfirmar.setBackground(new java.awt.Color(0, 153, 51));
+        jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonConfirmar.setText("✓ Borrar");
+        jButtonConfirmar.addActionListener(this::jButtonConfirmarActionPerformed);
+
+        jButtonCancelar.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setText("❌ Cancel·lar");
+        jButtonCancelar.addActionListener(this::jButtonCancelarActionPerformed);
+
+        jLabelLlogAct.setText("Lloguers  actius:");
+
+        jLabelNumLloguersAct.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelLlogAct, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelNumLloguersAct, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelLlogAct)
+                    .addComponent(jLabelNumLloguersAct))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        // TODO add your handling code here:
+       Usuario usuarioSeleccionado = (Usuario) jComboBox1.getSelectedItem();
+
+        if (usuarioSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona un usuari per borrar.", "Avís", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 1. Comprobar si tiene alquileres activos sin devolver
+        boolean tieneLloguersActius = false;
+        for (Alquiler a : DataStore.getAlquileres()) {
+            if (a.getUsuario().equals(usuarioSeleccionado) && !a.isDevuelto()) {
+                tieneLloguersActius = true;
+                break;
+            }
+        }
+
+        if (tieneLloguersActius) {
+            JOptionPane.showMessageDialog(this, 
+                "No es pot esborrar aquest usuari perquè té lloguers actius pendents de retorn.", 
+                "Operació No Permesa", 
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // 2. Pedir confirmación al usuario
+        int confirmacion = JOptionPane.showConfirmDialog(
+            this,
+            "Estàs segur que vols esborrar l'usuari '" + usuarioSeleccionado.getNombreCompleto() + "'?",
+            "Confirmar eliminació",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            // 3. Eliminar de DataStore
+            DataStore.getUsuarios().remove(usuarioSeleccionado);
+            JOptionPane.showMessageDialog(this, "Usuari esborrat amb èxit!");
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,5 +219,11 @@ public class DeleteUserScreen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelLlogAct;
+    private javax.swing.JLabel jLabelNumLloguersAct;
     // End of variables declaration//GEN-END:variables
 }

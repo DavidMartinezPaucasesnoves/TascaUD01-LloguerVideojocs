@@ -119,6 +119,7 @@ public class MainScreen extends javax.swing.JFrame {
         jMenuUsuari.add(jMenuItemUsuariCrear);
 
         jMenuItemUsuariBorrar.setText("Borrar...");
+        jMenuItemUsuariBorrar.addActionListener(this::jMenuItemUsuariBorrarActionPerformed);
         jMenuUsuari.add(jMenuItemUsuariBorrar);
 
         jMenuBar1.add(jMenuUsuari);
@@ -202,6 +203,13 @@ public class MainScreen extends javax.swing.JFrame {
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_jMenuItemJocBorrarActionPerformed
+
+    private void jMenuItemUsuariBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuariBorrarActionPerformed
+        // TODO add your handling code here:
+        DeleteUserScreen dialog = new DeleteUserScreen(this, true);
+        dialog.setLocationRelativeTo(this);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemUsuariBorrarActionPerformed
 
     /**
      * @param args the command line arguments
